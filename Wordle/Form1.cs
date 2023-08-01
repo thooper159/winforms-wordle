@@ -18,7 +18,6 @@ namespace Wordle
 
             //Select a word randomly
             correctWord = wordsArray[random.Next(0, 499)];
-            MessageBox.Show(correctWord);
         }
 
         private void onGuess(Object sender, KeyPressEventArgs e)
@@ -78,7 +77,7 @@ namespace Wordle
             }
             else if (guesses == MAX_GUESSES)
             {
-                MessageBox.Show("You lose :(");
+                MessageBox.Show("You lose! The word was " + correctWord);
             }
             else
             {

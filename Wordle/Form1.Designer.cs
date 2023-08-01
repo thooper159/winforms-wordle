@@ -40,7 +40,7 @@
             // 
             richTextBox1.DetectUrls = false;
             richTextBox1.Font = new Font("Segoe UI", 24F, FontStyle.Regular, GraphicsUnit.Point);
-            richTextBox1.Location = new Point(135, 13);
+            richTextBox1.Location = new Point(21, 12);
             richTextBox1.MaxLength = 5;
             richTextBox1.Multiline = false;
             richTextBox1.Name = "richTextBox1";
@@ -54,7 +54,7 @@
             // 
             richTextBox2.DetectUrls = false;
             richTextBox2.Font = new Font("Segoe UI", 24F, FontStyle.Regular, GraphicsUnit.Point);
-            richTextBox2.Location = new Point(135, 92);
+            richTextBox2.Location = new Point(21, 91);
             richTextBox2.MaxLength = 5;
             richTextBox2.Multiline = false;
             richTextBox2.Name = "richTextBox2";
@@ -68,7 +68,7 @@
             // 
             richTextBox3.DetectUrls = false;
             richTextBox3.Font = new Font("Segoe UI", 24F, FontStyle.Regular, GraphicsUnit.Point);
-            richTextBox3.Location = new Point(135, 171);
+            richTextBox3.Location = new Point(21, 170);
             richTextBox3.MaxLength = 5;
             richTextBox3.Multiline = false;
             richTextBox3.Name = "richTextBox3";
@@ -82,7 +82,7 @@
             // 
             richTextBox4.DetectUrls = false;
             richTextBox4.Font = new Font("Segoe UI", 24F, FontStyle.Regular, GraphicsUnit.Point);
-            richTextBox4.Location = new Point(135, 250);
+            richTextBox4.Location = new Point(21, 249);
             richTextBox4.MaxLength = 5;
             richTextBox4.Multiline = false;
             richTextBox4.Name = "richTextBox4";
@@ -96,7 +96,7 @@
             // 
             richTextBox5.DetectUrls = false;
             richTextBox5.Font = new Font("Segoe UI", 24F, FontStyle.Regular, GraphicsUnit.Point);
-            richTextBox5.Location = new Point(135, 329);
+            richTextBox5.Location = new Point(21, 328);
             richTextBox5.MaxLength = 5;
             richTextBox5.Multiline = false;
             richTextBox5.Name = "richTextBox5";
@@ -110,7 +110,7 @@
             // 
             richTextBox6.DetectUrls = false;
             richTextBox6.Font = new Font("Segoe UI", 24F, FontStyle.Regular, GraphicsUnit.Point);
-            richTextBox6.Location = new Point(135, 408);
+            richTextBox6.Location = new Point(21, 407);
             richTextBox6.MaxLength = 5;
             richTextBox6.Multiline = false;
             richTextBox6.Name = "richTextBox6";
@@ -124,7 +124,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(469, 521);
+            ClientSize = new Size(211, 497);
             Controls.Add(richTextBox6);
             Controls.Add(richTextBox5);
             Controls.Add(richTextBox4);
@@ -132,7 +132,9 @@
             Controls.Add(richTextBox2);
             Controls.Add(richTextBox1);
             FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
             Name = "frmMain";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Wordle";
             ResumeLayout(false);
         }
