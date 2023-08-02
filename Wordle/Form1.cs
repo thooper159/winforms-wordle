@@ -128,7 +128,7 @@ namespace Wordle
                 2 is correct letter
 
             */
-            int[] colors = { 0, 0, 0, 0, 0 };
+            int[] colors = new int[5];
             Dictionary<char, int> charsToUpdate = new Dictionary<char, int>();
 
             for (int i = 0; i < 5; i++)
@@ -137,29 +137,30 @@ namespace Wordle
                 if (guess[i] == correctWord[i])
                 {
                     colors[i] = 2;
-                    charsToUpdate.Add(guess[i], 2);
+                    charsToUpdate[guess[i]] = 2;
                 }
             }
             for (int i = 0; i < 5; i++)
             {
-                if (colors[i] != 2)
+                if (colors[i] != 2 && correctWord.Contains(guess[i]) && !charsToUpdate.ContainsKey(guess[i]))
                 {
-                    if (correctWord.Contains(guess[i]) && Array.IndexOf(colors, 2) != i)
-                    {
-                        colors[i] = 1;
-                        charsToUpdate.Add(guess[i], 1);
-                    }
-                    else
-                    {
-                        charsToUpdate.Add(guess[i], 0);
-                    }
+                    colors[i] = 1;
+                    charsToUpdate[guess[i]] = 1;
+                }
+            }
+
+            foreach (char letter in guess)
+            {
+                if (!charsToUpdate.ContainsKey(letter))
+                {
+                    charsToUpdate[letter] = 0;
                 }
             }
             foreach (var kvp in charsToUpdate)
             {
-                string letter = kvp.Key.ToString();
+                char letter = kvp.Key;
                 int colorValue = kvp.Value;
-                rtbUsedLetters.SelectionStart = rtbUsedLetters.Find(letter);
+                rtbUsedLetters.SelectionStart = rtbUsedLetters.Find(letter.ToString());
                 rtbUsedLetters.SelectionLength = 1;
                 switch (colorValue)
                 {
