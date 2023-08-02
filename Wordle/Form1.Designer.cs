@@ -34,97 +34,124 @@
             richTextBox4 = new RichTextBox();
             richTextBox5 = new RichTextBox();
             richTextBox6 = new RichTextBox();
+            rtbUsedLetters = new RichTextBox();
             SuspendLayout();
             // 
             // richTextBox1
             // 
+            richTextBox1.Anchor = AnchorStyles.Top;
             richTextBox1.DetectUrls = false;
-            richTextBox1.Font = new Font("Segoe UI", 24F, FontStyle.Regular, GraphicsUnit.Point);
-            richTextBox1.Location = new Point(21, 12);
+            richTextBox1.Font = new Font("Courier New", 19.8000011F, FontStyle.Regular, GraphicsUnit.Point);
+            richTextBox1.Location = new Point(150, 12);
+            richTextBox1.Margin = new Padding(3, 4, 3, 4);
             richTextBox1.MaxLength = 5;
             richTextBox1.Multiline = false;
             richTextBox1.Name = "richTextBox1";
             richTextBox1.ScrollBars = RichTextBoxScrollBars.None;
-            richTextBox1.Size = new Size(168, 73);
+            richTextBox1.Size = new Size(114, 56);
             richTextBox1.TabIndex = 1;
             richTextBox1.Text = "";
             richTextBox1.KeyPress += onGuess;
             // 
             // richTextBox2
             // 
+            richTextBox2.Anchor = AnchorStyles.Top;
             richTextBox2.DetectUrls = false;
-            richTextBox2.Font = new Font("Segoe UI", 24F, FontStyle.Regular, GraphicsUnit.Point);
-            richTextBox2.Location = new Point(21, 91);
+            richTextBox2.Font = new Font("Courier New", 19.8000011F, FontStyle.Regular, GraphicsUnit.Point);
+            richTextBox2.Location = new Point(150, 74);
+            richTextBox2.Margin = new Padding(3, 4, 3, 4);
             richTextBox2.MaxLength = 5;
             richTextBox2.Multiline = false;
             richTextBox2.Name = "richTextBox2";
             richTextBox2.ScrollBars = RichTextBoxScrollBars.None;
-            richTextBox2.Size = new Size(168, 73);
+            richTextBox2.Size = new Size(114, 56);
             richTextBox2.TabIndex = 2;
             richTextBox2.Text = "";
             richTextBox2.KeyPress += onGuess;
             // 
             // richTextBox3
             // 
+            richTextBox3.Anchor = AnchorStyles.Top;
             richTextBox3.DetectUrls = false;
-            richTextBox3.Font = new Font("Segoe UI", 24F, FontStyle.Regular, GraphicsUnit.Point);
-            richTextBox3.Location = new Point(21, 170);
+            richTextBox3.Font = new Font("Courier New", 19.8000011F, FontStyle.Regular, GraphicsUnit.Point);
+            richTextBox3.Location = new Point(150, 136);
+            richTextBox3.Margin = new Padding(3, 4, 3, 4);
             richTextBox3.MaxLength = 5;
             richTextBox3.Multiline = false;
             richTextBox3.Name = "richTextBox3";
             richTextBox3.ScrollBars = RichTextBoxScrollBars.None;
-            richTextBox3.Size = new Size(168, 73);
+            richTextBox3.Size = new Size(114, 56);
             richTextBox3.TabIndex = 3;
             richTextBox3.Text = "";
             richTextBox3.KeyPress += onGuess;
             // 
             // richTextBox4
             // 
+            richTextBox4.Anchor = AnchorStyles.Top;
             richTextBox4.DetectUrls = false;
-            richTextBox4.Font = new Font("Segoe UI", 24F, FontStyle.Regular, GraphicsUnit.Point);
-            richTextBox4.Location = new Point(21, 249);
+            richTextBox4.Font = new Font("Courier New", 19.8000011F, FontStyle.Regular, GraphicsUnit.Point);
+            richTextBox4.Location = new Point(150, 198);
+            richTextBox4.Margin = new Padding(3, 4, 3, 4);
             richTextBox4.MaxLength = 5;
             richTextBox4.Multiline = false;
             richTextBox4.Name = "richTextBox4";
             richTextBox4.ScrollBars = RichTextBoxScrollBars.None;
-            richTextBox4.Size = new Size(168, 73);
+            richTextBox4.Size = new Size(114, 56);
             richTextBox4.TabIndex = 4;
             richTextBox4.Text = "";
             richTextBox4.KeyPress += onGuess;
             // 
             // richTextBox5
             // 
+            richTextBox5.Anchor = AnchorStyles.Top;
             richTextBox5.DetectUrls = false;
-            richTextBox5.Font = new Font("Segoe UI", 24F, FontStyle.Regular, GraphicsUnit.Point);
-            richTextBox5.Location = new Point(21, 328);
+            richTextBox5.Font = new Font("Courier New", 19.8000011F, FontStyle.Regular, GraphicsUnit.Point);
+            richTextBox5.Location = new Point(150, 260);
+            richTextBox5.Margin = new Padding(3, 4, 3, 4);
             richTextBox5.MaxLength = 5;
             richTextBox5.Multiline = false;
             richTextBox5.Name = "richTextBox5";
             richTextBox5.ScrollBars = RichTextBoxScrollBars.None;
-            richTextBox5.Size = new Size(168, 73);
+            richTextBox5.Size = new Size(114, 56);
             richTextBox5.TabIndex = 5;
             richTextBox5.Text = "";
             richTextBox5.KeyPress += onGuess;
             // 
             // richTextBox6
             // 
+            richTextBox6.Anchor = AnchorStyles.Top;
             richTextBox6.DetectUrls = false;
-            richTextBox6.Font = new Font("Segoe UI", 24F, FontStyle.Regular, GraphicsUnit.Point);
-            richTextBox6.Location = new Point(21, 407);
+            richTextBox6.Font = new Font("Courier New", 19.8000011F, FontStyle.Regular, GraphicsUnit.Point);
+            richTextBox6.Location = new Point(150, 322);
+            richTextBox6.Margin = new Padding(3, 4, 3, 4);
             richTextBox6.MaxLength = 5;
             richTextBox6.Multiline = false;
             richTextBox6.Name = "richTextBox6";
             richTextBox6.ScrollBars = RichTextBoxScrollBars.None;
-            richTextBox6.Size = new Size(168, 73);
+            richTextBox6.Size = new Size(114, 56);
             richTextBox6.TabIndex = 6;
             richTextBox6.Text = "";
             richTextBox6.KeyPress += onGuess;
+            // 
+            // rtbUsedLetters
+            // 
+            rtbUsedLetters.Anchor = AnchorStyles.Top;
+            rtbUsedLetters.Font = new Font("Courier New", 19.8F, FontStyle.Regular, GraphicsUnit.Point);
+            rtbUsedLetters.Location = new Point(12, 386);
+            rtbUsedLetters.Margin = new Padding(3, 4, 3, 4);
+            rtbUsedLetters.Name = "rtbUsedLetters";
+            rtbUsedLetters.ReadOnly = true;
+            rtbUsedLetters.ScrollBars = RichTextBoxScrollBars.None;
+            rtbUsedLetters.Size = new Size(390, 128);
+            rtbUsedLetters.TabIndex = 7;
+            rtbUsedLetters.Text = "Q W E R T Y U I O P\n A S D F G H J K L   \n  Z X C V B N M    ";
             // 
             // frmMain
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(211, 497);
+            ClientSize = new Size(414, 564);
+            Controls.Add(rtbUsedLetters);
             Controls.Add(richTextBox6);
             Controls.Add(richTextBox5);
             Controls.Add(richTextBox4);
@@ -132,6 +159,7 @@
             Controls.Add(richTextBox2);
             Controls.Add(richTextBox1);
             FormBorderStyle = FormBorderStyle.FixedSingle;
+            Margin = new Padding(3, 4, 3, 4);
             MaximizeBox = false;
             Name = "frmMain";
             StartPosition = FormStartPosition.CenterScreen;
@@ -147,5 +175,6 @@
         private RichTextBox richTextBox4;
         private RichTextBox richTextBox5;
         private RichTextBox richTextBox6;
+        private RichTextBox rtbUsedLetters;
     }
 }

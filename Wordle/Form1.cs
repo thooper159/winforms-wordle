@@ -1,25 +1,58 @@
+using System;
+
 namespace Wordle
 {
     public partial class frmMain : Form
     {
         const int MAX_GUESSES = 6;
-        int guesses = 0;
+        int guesses;
         string correctWord;
+        string[] wordsArray;
+        Random random = new Random();
+
 
         public frmMain()
         {
             InitializeComponent();
-            Random random = new Random();
             string wordsFileName = @"C:\Users\tyler\source\repos\Wordle\Wordle\words";
 
             //Load in words from file
             IEnumerable<string> wordFileLines = File.ReadLines(wordsFileName);
-            string[] wordsArray = wordFileLines.ToArray();
-
-            //Select a word randomly
-            correctWord = wordsArray[random.Next(0, 499)];
+            wordsArray = wordFileLines.ToArray();
+            setupGame();
         }
 
+        private void setupGame()
+        {
+            //Reset the textboxes
+            RichTextBox[] richTextBoxes = { richTextBox1, richTextBox2, richTextBox3, richTextBox4, richTextBox5, richTextBox6 };
+            foreach (RichTextBox richTextBox in richTextBoxes)
+            {
+                richTextBox.Text = "";
+                richTextBox.ReadOnly = false;
+            }
+
+            //Reset the used letters
+            rtbUsedLetters.SelectionBackColor = Color.LightGray;
+            for (int i = 0; i < rtbUsedLetters.TextLength; i++)
+            {
+                //if current char is a letter, make light gray
+                if (rtbUsedLetters.Text[i] != ' ')
+                {
+                    rtbUsedLetters.SelectionStart = i;
+                    rtbUsedLetters.SelectionLength = 1;
+                    rtbUsedLetters.SelectionBackColor = Color.LightGray;
+                }
+                //else, do not change anything
+            }
+
+            //Reset the guesses
+            guesses = 0;
+            //Choose a new target word
+            correctWord = wordsArray[random.Next(0, 499)];
+            richTextBox1.Focus();
+            return;
+        }
         private void onGuess(Object sender, KeyPressEventArgs e)
         {
 
@@ -74,10 +107,12 @@ namespace Wordle
             if (guess == correctWord)
             {
                 MessageBox.Show("You Win!!");
+                setupGame();
             }
             else if (guesses == MAX_GUESSES)
             {
                 MessageBox.Show("You lose! The word was " + correctWord);
+                setupGame();
             }
             else
             {
@@ -94,6 +129,7 @@ namespace Wordle
 
             */
             int[] colors = { 0, 0, 0, 0, 0 };
+            Dictionary<char, int> charsToUpdate = new Dictionary<char, int>();
 
             for (int i = 0; i < 5; i++)
             {
@@ -101,6 +137,7 @@ namespace Wordle
                 if (guess[i] == correctWord[i])
                 {
                     colors[i] = 2;
+                    charsToUpdate.Add(guess[i], 2);
                 }
             }
             for (int i = 0; i < 5; i++)
@@ -110,10 +147,34 @@ namespace Wordle
                     if (correctWord.Contains(guess[i]) && Array.IndexOf(colors, 2) != i)
                     {
                         colors[i] = 1;
+                        charsToUpdate.Add(guess[i], 1);
+                    }
+                    else
+                    {
+                        charsToUpdate.Add(guess[i], 0);
                     }
                 }
             }
+            foreach (var kvp in charsToUpdate)
+            {
+                string letter = kvp.Key.ToString();
+                int colorValue = kvp.Value;
+                rtbUsedLetters.SelectionStart = rtbUsedLetters.Find(letter);
+                rtbUsedLetters.SelectionLength = 1;
+                switch (colorValue)
+                {
+                    case 0:
+                        rtbUsedLetters.SelectionBackColor = Color.DarkSlateGray;
+                        break;
+                    case 1:
+                        rtbUsedLetters.SelectionBackColor = Color.Yellow;
+                        break;
+                    case 2:
+                        rtbUsedLetters.SelectionBackColor = Color.Green;
+                        break;
+                }
 
+            }
             return colors;
         }
     }
