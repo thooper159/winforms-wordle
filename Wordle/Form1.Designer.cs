@@ -35,6 +35,10 @@
             richTextBox5 = new RichTextBox();
             richTextBox6 = new RichTextBox();
             rtbUsedLetters = new RichTextBox();
+            label1 = new Label();
+            label2 = new Label();
+            lblWins = new Label();
+            lblLosses = new Label();
             SuspendLayout();
             // 
             // richTextBox1
@@ -146,11 +150,53 @@
             rtbUsedLetters.TabIndex = 7;
             rtbUsedLetters.Text = "Q W E R T Y U I O P\n A S D F G H J K L   \n  Z X C V B N M    ";
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(291, 12);
+            label1.Name = "label1";
+            label1.Size = new Size(26, 20);
+            label1.TabIndex = 8;
+            label1.Text = "W:";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(355, 12);
+            label2.Name = "label2";
+            label2.Size = new Size(19, 20);
+            label2.TabIndex = 9;
+            label2.Text = "L:";
+            // 
+            // lblWins
+            // 
+            lblWins.AutoSize = true;
+            lblWins.Location = new Point(323, 12);
+            lblWins.Name = "lblWins";
+            lblWins.Size = new Size(17, 20);
+            lblWins.TabIndex = 10;
+            lblWins.Text = "0";
+            lblWins.TextAlign = ContentAlignment.MiddleRight;
+            // 
+            // lblLosses
+            // 
+            lblLosses.AutoSize = true;
+            lblLosses.Location = new Point(380, 12);
+            lblLosses.Name = "lblLosses";
+            lblLosses.Size = new Size(17, 20);
+            lblLosses.TabIndex = 11;
+            lblLosses.Text = "0";
+            lblLosses.TextAlign = ContentAlignment.MiddleRight;
+            // 
             // frmMain
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(414, 564);
+            Controls.Add(lblLosses);
+            Controls.Add(lblWins);
+            Controls.Add(label2);
+            Controls.Add(label1);
             Controls.Add(rtbUsedLetters);
             Controls.Add(richTextBox6);
             Controls.Add(richTextBox5);
@@ -165,6 +211,7 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Wordle";
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -176,5 +223,9 @@
         private RichTextBox richTextBox5;
         private RichTextBox richTextBox6;
         private RichTextBox rtbUsedLetters;
+        private Label label1;
+        private Label label2;
+        private Label lblWins;
+        private Label lblLosses;
     }
 }

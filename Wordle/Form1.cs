@@ -5,21 +5,23 @@ namespace Wordle
     public partial class frmMain : Form
     {
         const int MAX_GUESSES = 6;
+        const string savePath = @"C:\Users\tyler\source\repos\Wordle\Wordle\save";
+        const string wordsFileName = @"C:\Users\tyler\source\repos\Wordle\Wordle\words";
+        Random random = new Random();
         int guesses;
         string correctWord;
         string[] wordsArray;
-        Random random = new Random();
-
+        int wins = 0;
+        int losses = 0;
 
         public frmMain()
         {
             InitializeComponent();
-            string wordsFileName = @"C:\Users\tyler\source\repos\Wordle\Wordle\words";
-
             //Load in words from file
             IEnumerable<string> wordFileLines = File.ReadLines(wordsFileName);
             wordsArray = wordFileLines.ToArray();
             setupGame();
+            loadOutcome();
         }
 
         private void setupGame()
@@ -48,6 +50,7 @@ namespace Wordle
 
             //Reset the guesses
             guesses = 0;
+            loadOutcome();
             //Choose a new target word
             correctWord = wordsArray[random.Next(0, 499)];
             richTextBox1.Focus();
@@ -55,6 +58,8 @@ namespace Wordle
         }
         private void onGuess(Object sender, KeyPressEventArgs e)
         {
+            //only allow Alphabet or Backspace
+            e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back);
 
             if (e.KeyChar != (char)Keys.Enter)
             {
@@ -106,12 +111,14 @@ namespace Wordle
 
             if (guess == correctWord)
             {
-                MessageBox.Show("You Win!!");
+                MessageBox.Show("You Win!");
+                saveOutcome(1);
                 setupGame();
             }
             else if (guesses == MAX_GUESSES)
             {
-                MessageBox.Show("You lose! The word was " + correctWord);
+                MessageBox.Show("You lose!\nThe word was " + correctWord);
+                saveOutcome(0);
                 setupGame();
             }
             else
@@ -177,6 +184,31 @@ namespace Wordle
 
             }
             return colors;
+        }
+        private void saveOutcome(int outcome)
+        {
+            using (FileStream saveFileStream = File.Open(savePath, FileMode.Append))
+            using (StreamWriter writer = new StreamWriter(saveFileStream))
+            {
+                writer.Write(outcome);
+            }    
+        }
+
+        private void loadOutcome() {
+            try
+            {
+                string content = File.ReadAllText(savePath);
+                int wins = content.Count(c => c == '1');
+                int losses = content.Count(c => c == '0');
+
+                lblWins.Text = wins.ToString();
+                lblLosses.Text = losses.ToString();
+            }
+            catch (IOException e)
+            {
+                lblWins.Text = "0";
+                lblLosses.Text = "0";
+            }
         }
     }
 }
